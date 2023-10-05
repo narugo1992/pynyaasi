@@ -46,3 +46,7 @@ docs:
 	$(MAKE) -C "${DOC_DIR}" build
 pdocs:
 	$(MAKE) -C "${DOC_DIR}" prod
+
+sync:
+	$(PYTHON) -m tools.nyaasi sync
+	$(PYTHON) -m tools.sukebei sync
