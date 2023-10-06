@@ -1,71 +1,17 @@
 import re
-import warnings
-from contextlib import contextmanager
 from dataclasses import dataclass
-from enum import Enum, unique
+from enum import Enum
 from typing import Optional, Type, Any, Iterator
 from urllib.parse import urljoin
 
 import requests
-from hbutils.scale import size_to_bytes
 from hbutils.system import urlsplit
 from pyquery import PyQuery as pq
 
+from .directory import DirectoryTreeNode, Directory, File
+from .enum import SortBy, Order
+from .size import SizeProxy
 from ..utils import load_text_from_enum, get_session, unix_timestamp_to_datetime, load_from_enum
-
-
-@unique
-class SortBy(str, Enum):
-    COMMENTS = 'comments'
-    SIZE = 'size'
-    DATE = 'id'
-    SEEDERS = 'seeders'
-    LEECHERS = 'leechers'
-    DOWNLOADS = 'downloads'
-
-
-@unique
-class Order(str, Enum):
-    DESC = 'desc'
-    ASC = 'asc'
-
-
-@contextmanager
-def _suppress_warning():
-    with warnings.catch_warnings():
-        warnings.filterwarnings('ignore')
-        yield
-
-
-@dataclass
-class SizeProxy:
-    raw: str
-
-    def __repr__(self):
-        return self.raw
-
-    @property
-    def _bytes(self):
-        if 'bytes' in self.raw.lower():
-            return int(' '.join(re.split(r'\s+', self.raw)[:-1]))
-        else:
-            return size_to_bytes(self.raw)
-
-    def __gt__(self, other):
-        with _suppress_warning():
-            return self._bytes > size_to_bytes(other)
-
-    def __ge__(self, other):
-        with _suppress_warning():
-            return self._bytes >= size_to_bytes(other)
-
-    def __lt__(self, other):
-        with _suppress_warning():
-            return self._bytes < size_to_bytes(other)
-
-    def __le__(self, other):
-        with _suppress_warning():
-            return self._bytes <= size_to_bytes(other)
 
 
 @dataclass
@@ -83,7 +29,43 @@ class ListItem:
     leechers: int
     downloads: int
     is_trusted: bool
-    is_red: bool
+    is_remake: bool
+    is_batch: bool
+
+    @property
+    def datetime(self):
+        return unix_timestamp_to_datetime(self.timestamp)
+
+    @property
+    def time(self) -> str:
+        return self.datetime.isoformat()
+
+    @property
+    def size(self) -> SizeProxy:
+        return SizeProxy(self.size_raw)
+
+
+@dataclass
+class ResourceItem:
+    id: int
+    category: Any
+    title: str
+    information: str
+    torrent_download_url: str
+    magnet_url: str
+    size_raw: str
+    timestamp: int
+    seeders: int
+    leechers: int
+    downloads: int
+    is_trusted: bool
+    is_remake: bool
+    is_batch: bool
+    info_hash: str
+    submitter: str
+    submitter_url: Optional[str]
+    description_md: str
+    directory_tree: DirectoryTreeNode
 
     @property
     def datetime(self):
@@ -141,7 +123,8 @@ class BaseClient:
         main_table = page('table.torrent-list')
         for row in main_table('tbody tr').items():
             is_trusted = bool(row.has_class('success'))
-            is_red = bool(row.has_class('danger'))
+            is_remake = bool(row.has_class('danger'))
+            is_batch = bool(row.has_class('warning'))
             category_raw = urlsplit(row('td:nth-child(1) a').attr('href')).query_dict['c']
             category = load_from_enum(category_raw, self.__category_class__)
 
@@ -170,7 +153,7 @@ class BaseClient:
                 id_, category, comments, title, url,
                 torrent_download_url, magnet_url,
                 size_raw, timestamp, seeders, leechers, downloads,
-                is_trusted, is_red
+                is_trusted, is_remake, is_batch,
             )
 
     # noinspection PyShadowingBuiltins
@@ -189,3 +172,87 @@ class BaseClient:
             yield from iterator
 
             page += 1
+
+    def get_resource(self, id_: int):
+        resp = self._session.get(f'{self.__endpoint__}/view/{id_}')
+        resp.raise_for_status()
+        page = pq(resp.text)
+
+        panels = list(page('body > .container > .panel').items())
+
+        # basic information
+        first_block = panels[0]
+        is_trusted = first_block.has_class('panel-success')
+        is_remake = first_block.has_class('panel-danger')
+        is_batch = first_block.has_class('panel-warning')
+        title = first_block('.panel-heading .panel-title').text()
+        torrent_download_url = urljoin(resp.request.url, first_block('.panel-footer a:nth-child(1)').attr('href'))
+        magnet_url = first_block('.panel-footer a:nth-child(2)').attr('href')
+
+        # header arguments
+        arguments = {}
+        for row in first_block('.panel-body .row').items():
+            labels = list(row('.col-md-1').items())
+            contents = list(row('.col-md-5').items())
+            assert len(labels) == len(contents), f'Labels ({len(labels)}) and contents {len(contents)} not match.'
+
+            for label, content in zip(labels, contents):
+                label_text = re.sub(r'[\W_]+', '_', label.text().lower()).strip('_')
+                content_text = content.text().strip()
+                if label_text == 'category':
+                    category_raw = urlsplit(urljoin(resp.request.url,
+                                                    content('a:nth-last-child(1)').attr('href'))).query_dict['c']
+                    arguments[label_text] = load_from_enum(category_raw, self.__category_class__)
+                elif label_text == 'date':
+                    arguments['timestamp'] = int(content.attr('data-timestamp'))
+                elif label_text == 'submitter':
+                    if list(content('a').items()):
+                        arguments['submitter'] = content('a').text().strip()
+                        arguments['submitter_url'] = urljoin(resp.request.url, content('a').attr('href'))
+                    else:
+                        arguments['submitter'] = content.text().strip()
+                        arguments['submitter_url'] = None
+                elif label_text in {'seeders', 'leechers'}:
+                    arguments[label_text] = int(content.text().strip())
+                elif label_text == 'completed':
+                    arguments['downloads'] = int(content.text().strip())
+                elif label_text == 'file_size':
+                    arguments['size_raw'] = content_text.strip()
+                else:
+                    arguments[label_text] = content_text.strip()
+
+        # description
+        description_md = page('#torrent-description').html()
+
+        # folder tree
+        third_block = panels[2]
+        list_header = third_block('.panel-body > ul > li')
+
+        def _recursive_extraction(element):
+            if list(element.children('a.folder')):
+                _folder_name = element.children('a.folder').text().strip()
+                items = element.children('ul').children('li')
+                return Directory(_folder_name, [_recursive_extraction(item) for item in items.items()])
+
+            elif list(element.children('i.fa-file')):
+                _file_raw_size = element('.file-size').text().strip().strip('(').strip(')').strip()
+                element.remove('.file-size')
+                _file_name = element.text().strip()
+                return File(_file_name, _file_raw_size)
+
+            else:
+                assert False, f'Unknown element in folder extraction - {element!r}.'
+
+        file_node = _recursive_extraction(list_header)
+
+        return ResourceItem(
+            id=id_, title=title,
+            torrent_download_url=torrent_download_url,
+            magnet_url=magnet_url,
+            is_trusted=is_trusted,
+            is_batch=is_batch,
+            is_remake=is_remake,
+            description_md=description_md,
+            directory_tree=file_node,
+            **arguments
+        )

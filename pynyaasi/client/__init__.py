@@ -1,1 +1,2 @@
-from .client import BaseClient, ListItem, SizeProxy, Order, SortBy
+from .client import BaseClient, ListItem, SizeProxy
+from .enum import SortBy, Order
