@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pynyaasi.utils.time &mdash; pynyaasi 0.0.1 documentation</title>
+  <title>pynyaasi.sukebei.enum &mdash; pynyaasi 0.0.1 documentation</title>
   
 
   
@@ -141,7 +141,7 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
-      <li>pynyaasi.utils.time</li>
+      <li>pynyaasi.sukebei.enum</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -158,29 +158,31 @@
             
     
     
-  <h1>Source code for pynyaasi.utils.time</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">datetime</span>
+  <h1>Source code for pynyaasi.sukebei.enum</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span><span class="p">,</span> <span class="n">unique</span>
 
-<span class="kn">import</span> <span class="nn">pytz</span>
-<span class="kn">from</span> <span class="nn">tzlocal</span> <span class="kn">import</span> <span class="n">get_localzone</span>
+<span class="n">SUKEBEI_ENDPOINT</span> <span class="o">=</span> <span class="s1">&#39;https://sukebei.nyaa.si&#39;</span>
 
 
-<div class="viewcode-block" id="unix_timestamp_to_datetime"><a class="viewcode-back" href="../../../api_doc/utils/time.html#pynyaasi.utils.time.unix_timestamp_to_datetime">[docs]</a><span class="k">def</span> <span class="nf">unix_timestamp_to_datetime</span><span class="p">(</span><span class="n">unix_timestamp</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Convert a Unix timestamp to a datetime object in the local time zone.</span>
+<div class="viewcode-block" id="FilterType"><a class="viewcode-back" href="../../../api_doc/sukebei/index.html#pynyaasi.sukebei.FilterType">[docs]</a><span class="nd">@unique</span>
+<span class="k">class</span> <span class="nc">FilterType</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+    <span class="n">NO_FILTER</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
+    <span class="n">NO_REMAKES</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
+    <span class="n">TRUSTED_ONLY</span> <span class="o">=</span> <span class="s1">&#39;2&#39;</span></div>
 
-<span class="sd">    :param unix_timestamp: The Unix timestamp</span>
-<span class="sd">    :type unix_timestamp: float</span>
-<span class="sd">    :return: The corresponding datetime object in the local time zone</span>
-<span class="sd">    :rtype: datetime.datetime</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Convert the Unix timestamp to a datetime object in UTC</span>
-    <span class="n">utc_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">unix_timestamp</span><span class="p">)</span>
 
-    <span class="c1"># Convert the UTC datetime object to the local time zone</span>
-    <span class="n">local_datetime</span> <span class="o">=</span> <span class="n">utc_datetime</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">get_localzone</span><span class="p">())</span>
-
-    <span class="k">return</span> <span class="n">local_datetime</span></div>
+<div class="viewcode-block" id="CategoryType"><a class="viewcode-back" href="../../../api_doc/sukebei/index.html#pynyaasi.sukebei.CategoryType">[docs]</a><span class="nd">@unique</span>
+<span class="k">class</span> <span class="nc">CategoryType</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+    <span class="n">ALL_CATEGORIES</span> <span class="o">=</span> <span class="s1">&#39;0_0&#39;</span>
+    <span class="n">ART</span> <span class="o">=</span> <span class="s1">&#39;1_0&#39;</span>
+    <span class="n">ART_ANIME</span> <span class="o">=</span> <span class="s1">&#39;1_1&#39;</span>
+    <span class="n">ART_DOUJINSHI</span> <span class="o">=</span> <span class="s1">&#39;1_2&#39;</span>
+    <span class="n">ART_GAMES</span> <span class="o">=</span> <span class="s1">&#39;1_3&#39;</span>
+    <span class="n">ART_MANGA</span> <span class="o">=</span> <span class="s1">&#39;1_4&#39;</span>
+    <span class="n">ART_PICTURES</span> <span class="o">=</span> <span class="s1">&#39;1_5&#39;</span>
+    <span class="n">REAL_LIFE</span> <span class="o">=</span> <span class="s1">&#39;2_0&#39;</span>
+    <span class="n">REAL_LIFE_PICTURES</span> <span class="o">=</span> <span class="s1">&#39;2_1&#39;</span>
+    <span class="n">REAL_LIFE_VIDEOS</span> <span class="o">=</span> <span class="s1">&#39;2_2&#39;</span></div>
 </pre></div>
 
 
@@ -218,7 +220,7 @@
         <div class="rst-other-versions">
                 <dl>
                     <dt>Branches</dt>
-                        <dd><a href="time.html">main</a></dd>
+                        <dd><a href="enum.html">main</a></dd>
                 </dl>
         </div>
     </div>
