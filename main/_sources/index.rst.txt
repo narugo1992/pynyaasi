@@ -23,6 +23,7 @@ The `pynyaasi` framework provides a user-friendly set of resources for mirroring
 
     api_doc/config/index
     api_doc/utils/index
+    api_doc/client/index
 
 
 .. toctree::

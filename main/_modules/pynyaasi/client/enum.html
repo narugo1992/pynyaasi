@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pynyaasi.utils.time &mdash; pynyaasi 0.0.1 documentation</title>
+  <title>pynyaasi.client.enum &mdash; pynyaasi 0.0.1 documentation</title>
   
 
   
@@ -139,7 +139,7 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
-      <li>pynyaasi.utils.time</li>
+      <li>pynyaasi.client.enum</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -156,29 +156,46 @@
             
     
     
-  <h1>Source code for pynyaasi.utils.time</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">datetime</span>
-
-<span class="kn">import</span> <span class="nn">pytz</span>
-<span class="kn">from</span> <span class="nn">tzlocal</span> <span class="kn">import</span> <span class="n">get_localzone</span>
+  <h1>Source code for pynyaasi.client.enum</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">unique</span><span class="p">,</span> <span class="n">Enum</span>
 
 
-<div class="viewcode-block" id="unix_timestamp_to_datetime"><a class="viewcode-back" href="../../../api_doc/utils/time.html#pynyaasi.utils.time.unix_timestamp_to_datetime">[docs]</a><span class="k">def</span> <span class="nf">unix_timestamp_to_datetime</span><span class="p">(</span><span class="n">unix_timestamp</span><span class="p">):</span>
+<div class="viewcode-block" id="SortBy"><a class="viewcode-back" href="../../../api_doc/client/enum.html#pynyaasi.client.enum.SortBy">[docs]</a><span class="nd">@unique</span>
+<span class="k">class</span> <span class="nc">SortBy</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Convert a Unix timestamp to a datetime object in the local time zone.</span>
+<span class="sd">    Enumeration representing sorting options for search results.</span>
 
-<span class="sd">    :param unix_timestamp: The Unix timestamp</span>
-<span class="sd">    :type unix_timestamp: float</span>
-<span class="sd">    :return: The corresponding datetime object in the local time zone</span>
-<span class="sd">    :rtype: datetime.datetime</span>
+<span class="sd">    The `SortBy` enumeration defines different attributes by which search results can be sorted, such as comments, size, date, seeders, leechers, and downloads.</span>
+
+<span class="sd">    Each option in the enumeration corresponds to a specific sorting attribute for search results.</span>
+
+<span class="sd">    :cvar COMMENTS: Sort by the number of comments.</span>
+<span class="sd">    :cvar SIZE: Sort by file size.</span>
+<span class="sd">    :cvar DATE: Sort by date.</span>
+<span class="sd">    :cvar SEEDERS: Sort by the number of seeders.</span>
+<span class="sd">    :cvar LEECHERS: Sort by the number of leechers.</span>
+<span class="sd">    :cvar DOWNLOADS: Sort by the number of downloads.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Convert the Unix timestamp to a datetime object in UTC</span>
-    <span class="n">utc_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">unix_timestamp</span><span class="p">)</span>
+    <span class="n">COMMENTS</span> <span class="o">=</span> <span class="s1">&#39;comments&#39;</span>
+    <span class="n">SIZE</span> <span class="o">=</span> <span class="s1">&#39;size&#39;</span>
+    <span class="n">DATE</span> <span class="o">=</span> <span class="s1">&#39;id&#39;</span>
+    <span class="n">SEEDERS</span> <span class="o">=</span> <span class="s1">&#39;seeders&#39;</span>
+    <span class="n">LEECHERS</span> <span class="o">=</span> <span class="s1">&#39;leechers&#39;</span>
+    <span class="n">DOWNLOADS</span> <span class="o">=</span> <span class="s1">&#39;downloads&#39;</span></div>
 
-    <span class="c1"># Convert the UTC datetime object to the local time zone</span>
-    <span class="n">local_datetime</span> <span class="o">=</span> <span class="n">utc_datetime</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span><span class="o">=</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">get_localzone</span><span class="p">())</span>
 
-    <span class="k">return</span> <span class="n">local_datetime</span></div>
+<div class="viewcode-block" id="Order"><a class="viewcode-back" href="../../../api_doc/client/enum.html#pynyaasi.client.enum.Order">[docs]</a><span class="nd">@unique</span>
+<span class="k">class</span> <span class="nc">Order</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enumeration representing the order in which search results should be sorted.</span>
+
+<span class="sd">    The `Order` enumeration defines two options for sorting order: descending (DESC) and ascending (ASC). This enumeration is typically used in combination with `SortBy` to specify the sorting order of search results.</span>
+
+<span class="sd">    :cvar DESC: Sort in descending order.</span>
+<span class="sd">    :cvar ASC: Sort in ascending order.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">DESC</span> <span class="o">=</span> <span class="s1">&#39;desc&#39;</span>
+    <span class="n">ASC</span> <span class="o">=</span> <span class="s1">&#39;asc&#39;</span></div>
 </pre></div>
 
 
@@ -216,7 +233,7 @@
         <div class="rst-other-versions">
                 <dl>
                     <dt>Branches</dt>
-                        <dd><a href="time.html">main</a></dd>
+                        <dd><a href="enum.html">main</a></dd>
                 </dl>
         </div>
     </div>

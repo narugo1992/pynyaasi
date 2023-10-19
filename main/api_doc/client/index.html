@@ -9,7 +9,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pynyaasi.config &mdash; pynyaasi 0.0.1 documentation</title>
+  <title>pynyaasi.client &mdash; pynyaasi 0.0.1 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="pynyaasi.config.meta" href="meta.html" />
-    <link rel="prev" title="Installation" href="../../tutorials/installation/index.html" /> 
+    <link rel="next" title="pynyaasi.client.client" href="client.html" />
+    <link rel="prev" title="pynyaasi.utils.time" href="../utils/time.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -92,12 +92,15 @@
 </ul>
 <p><span class="caption-text">API Documentation</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">pynyaasi.config</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="meta.html">pynyaasi.config.meta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">pynyaasi.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">pynyaasi.utils</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pynyaasi.client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="client.html">pynyaasi.client.client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directory.html">pynyaasi.client.directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum.html">pynyaasi.client.enum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="size.html">pynyaasi.client.size</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">pynyaasi.utils</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../client/index.html">pynyaasi.client</a></li>
 </ul>
 
             
@@ -143,13 +146,13 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-      <li>pynyaasi.config</li>
+      <li>pynyaasi.client</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/api_doc/config/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api_doc/client/index.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -164,16 +167,29 @@
             
     
     
-  <section id="module-pynyaasi.config">
-<span id="pynyaasi-config"></span><h1>pynyaasi.config<a class="headerlink" href="#module-pynyaasi.config" title="Permalink to this headline">¶</a></h1>
+  <section id="module-pynyaasi.client">
+<span id="pynyaasi-client"></span><h1>pynyaasi.client<a class="headerlink" href="#module-pynyaasi.client" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="meta.html">pynyaasi.config.meta</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="meta.html#title">__TITLE__</a></li>
-<li class="toctree-l2"><a class="reference internal" href="meta.html#version">__VERSION__</a></li>
-<li class="toctree-l2"><a class="reference internal" href="meta.html#description">__DESCRIPTION__</a></li>
-<li class="toctree-l2"><a class="reference internal" href="meta.html#author">__AUTHOR__</a></li>
-<li class="toctree-l2"><a class="reference internal" href="meta.html#author-email">__AUTHOR_EMAIL__</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client.html">pynyaasi.client.client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="client.html#baseclient">BaseClient</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client.html#listitem">ListItem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="client.html#resourceitem">ResourceItem</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="directory.html">pynyaasi.client.directory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="directory.html#directorytreenode">DirectoryTreeNode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directory.html#directory">Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="directory.html#file">File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="enum.html">pynyaasi.client.enum</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enum.html#sortby">SortBy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enum.html#order">Order</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="size.html">pynyaasi.client.size</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="size.html#sizeproxy">SizeProxy</a></li>
 </ul>
 </li>
 </ul>
@@ -189,10 +205,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="meta.html" class="btn btn-neutral float-right" title="pynyaasi.config.meta" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="client.html" class="btn btn-neutral float-right" title="pynyaasi.client.client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../../tutorials/installation/index.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../utils/time.html" class="btn btn-neutral float-left" title="pynyaasi.utils.time" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
