@@ -3,6 +3,7 @@ from itertools import islice
 
 from responses import _recorder
 
+from pynyaasi.client import Order, SortBy
 from pynyaasi.nyaasi import NyaaSiClient, FilterType, CategoryType
 from .testfile import get_testfile
 
@@ -23,6 +24,12 @@ def main():
         pass
 
     for _ in client.iter_items('fire force', category=CategoryType.ANIME_RAW):
+        pass
+
+    for _ in client.iter_items('fire force', category=CategoryType.ANIME_RAW, sort_by=SortBy.COMMENTS):
+        pass
+
+    for _ in client.iter_items('fire force', category=CategoryType.ANIME_RAW, sort_by=SortBy.COMMENTS, order=Order.ASC):
         pass
 
     _ = client.get_resource(1174590)

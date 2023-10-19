@@ -128,7 +128,7 @@ class BaseClient:
             category_raw = urlsplit(row('td:nth-child(1) a').attr('href')).query_dict['c']
             category = load_from_enum(category_raw, self.__category_class__)
 
-            comment_boxes = list(row('td:nth-child(2) a#comments').items())
+            comment_boxes = list(row('td:nth-child(2) a.comments').items())
             if comment_boxes:
                 comments = int(comment_boxes[0].text())
             else:
