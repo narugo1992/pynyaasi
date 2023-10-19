@@ -4,9 +4,9 @@ from functools import partial
 
 import click
 
-from pynyaasi.utils import GLOBAL_CONTEXT_SETTINGS
-from pynyaasi.utils import print_version as _origin_print_version
 from .enum import get_f_list, get_c_list, WEBSITE_ROOT
+from ..utils import GLOBAL_CONTEXT_SETTINGS
+from ..utils import print_version as _origin_print_version
 
 print_version = partial(_origin_print_version, 'tools.nyaasi')
 

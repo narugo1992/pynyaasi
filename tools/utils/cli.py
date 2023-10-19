@@ -3,7 +3,7 @@ import types
 import click
 from click.core import Context, Option
 
-from ..config.meta import __TITLE__, __VERSION__, __AUTHOR__, __AUTHOR_EMAIL__
+from pynyaasi.config.meta import __TITLE__, __VERSION__, __AUTHOR__, __AUTHOR_EMAIL__
 
 _raw_authors = [item.strip() for item in __AUTHOR__.split(',') if item.strip()]
 _raw_emails = [item.strip() for item in __AUTHOR_EMAIL__.split(',')]

@@ -51,5 +51,8 @@ sync:
 	$(PYTHON) -m tools.nyaasi sync
 	$(PYTHON) -m tools.sukebei sync
 
-prepare:
+nyaasi:
 	$(PYTHON) -m test.testings.nyaasi
+
+sukebei:
+	$(PYTHON) -m test.testings.sukebei
