@@ -9,7 +9,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pynyaasi.config.meta &mdash; pynyaasi 0.0.1 documentation</title>
+  <title>pynyaasi.utils.time &mdash; pynyaasi 0.0.1 documentation</title>
   
 
   
@@ -37,8 +37,7 @@
   <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="pynyaasi.utils" href="../utils/index.html" />
-    <link rel="prev" title="pynyaasi.config" href="index.html" /> 
+    <link rel="prev" title="pynyaasi.utils.session" href="session.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -92,18 +91,16 @@
 </ul>
 <p><span class="caption-text">API Documentation</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">pynyaasi.config</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">pynyaasi.config.meta</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#title">__TITLE__</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#version">__VERSION__</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#description">__DESCRIPTION__</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#author">__AUTHOR__</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#author-email">__AUTHOR_EMAIL__</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">pynyaasi.config</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">pynyaasi.utils</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="enum.html">pynyaasi.utils.enum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="session.html">pynyaasi.utils.session</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">pynyaasi.utils.time</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#unix-timestamp-to-datetime">unix_timestamp_to_datetime</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">pynyaasi.utils</a></li>
 </ul>
 
             
@@ -149,15 +146,15 @@
     
       <li><a href="../../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">pynyaasi.config</a> &raquo;</li>
+          <li><a href="index.html">pynyaasi.utils</a> &raquo;</li>
         
-      <li>pynyaasi.config.meta</li>
+      <li>pynyaasi.utils.time</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../../_sources/api_doc/config/meta.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/api_doc/utils/time.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -172,54 +169,25 @@
             
     
     
-  <section id="module-pynyaasi.config.meta">
-<span id="pynyaasi-config-meta"></span><h1>pynyaasi.config.meta<a class="headerlink" href="#module-pynyaasi.config.meta" title="Permalink to this headline">¶</a></h1>
-<dl class="simple">
-<dt>Overview:</dt><dd><p>Meta information for pynyaasi package.</p>
+  <section id="module-pynyaasi.utils.time">
+<span id="pynyaasi-utils-time"></span><h1>pynyaasi.utils.time<a class="headerlink" href="#module-pynyaasi.utils.time" title="Permalink to this headline">¶</a></h1>
+<section id="unix-timestamp-to-datetime">
+<h2>unix_timestamp_to_datetime<a class="headerlink" href="#unix-timestamp-to-datetime" title="Permalink to this headline">¶</a></h2>
+<dl class="py function">
+<dt id="pynyaasi.utils.time.unix_timestamp_to_datetime">
+<code class="sig-prename descclassname">pynyaasi.utils.time.</code><code class="sig-name descname">unix_timestamp_to_datetime</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">unix_timestamp</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynyaasi/utils/time.html#unix_timestamp_to_datetime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pynyaasi.utils.time.unix_timestamp_to_datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert a Unix timestamp to a datetime object in the local time zone.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>unix_timestamp</strong> (<em>float</em>) – The Unix timestamp</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The corresponding datetime object in the local time zone</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>datetime.datetime</p>
 </dd>
 </dl>
-<section id="title">
-<h2>__TITLE__<a class="headerlink" href="#title" title="Permalink to this headline">¶</a></h2>
-<dl class="py data">
-<dt id="pynyaasi.config.meta.__TITLE__">
-<code class="sig-prename descclassname">pynyaasi.config.meta.</code><code class="sig-name descname">__TITLE__</code><em class="property"> = 'pynyaasi'</em><a class="headerlink" href="#pynyaasi.config.meta.__TITLE__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Title of this project (should be <cite>pynyaasi</cite>).</p>
-</dd></dl>
-
-</section>
-<section id="version">
-<h2>__VERSION__<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
-<dl class="py data">
-<dt id="pynyaasi.config.meta.__VERSION__">
-<code class="sig-prename descclassname">pynyaasi.config.meta.</code><code class="sig-name descname">__VERSION__</code><em class="property"> = '0.0.1'</em><a class="headerlink" href="#pynyaasi.config.meta.__VERSION__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Version of this project.</p>
-</dd></dl>
-
-</section>
-<section id="description">
-<h2>__DESCRIPTION__<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<dl class="py data">
-<dt id="pynyaasi.config.meta.__DESCRIPTION__">
-<code class="sig-prename descclassname">pynyaasi.config.meta.</code><code class="sig-name descname">__DESCRIPTION__</code><em class="property"> = 'Python client for nyaa.si and sukebei.nyaa.si.'</em><a class="headerlink" href="#pynyaasi.config.meta.__DESCRIPTION__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Short description of the project, will be included in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>.</p>
-</dd></dl>
-
-</section>
-<section id="author">
-<h2>__AUTHOR__<a class="headerlink" href="#author" title="Permalink to this headline">¶</a></h2>
-<dl class="py data">
-<dt id="pynyaasi.config.meta.__AUTHOR__">
-<code class="sig-prename descclassname">pynyaasi.config.meta.</code><code class="sig-name descname">__AUTHOR__</code><em class="property"> = 'narugo1992'</em><a class="headerlink" href="#pynyaasi.config.meta.__AUTHOR__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Author of this project.</p>
-</dd></dl>
-
-</section>
-<section id="author-email">
-<h2>__AUTHOR_EMAIL__<a class="headerlink" href="#author-email" title="Permalink to this headline">¶</a></h2>
-<dl class="py data">
-<dt id="pynyaasi.config.meta.__AUTHOR_EMAIL__">
-<code class="sig-prename descclassname">pynyaasi.config.meta.</code><code class="sig-name descname">__AUTHOR_EMAIL__</code><em class="property"> = 'narugo&#64;126.com'</em><a class="headerlink" href="#pynyaasi.config.meta.__AUTHOR_EMAIL__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Email of the authors’.</p>
 </dd></dl>
 
 </section>
@@ -234,10 +202,8 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../utils/index.html" class="btn btn-neutral float-right" title="pynyaasi.utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="index.html" class="btn btn-neutral float-left" title="pynyaasi.config" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="session.html" class="btn btn-neutral float-left" title="pynyaasi.utils.session" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -270,7 +236,7 @@
         <div class="rst-other-versions">
                 <dl>
                     <dt>Branches</dt>
-                        <dd><a href="meta.html">main</a></dd>
+                        <dd><a href="time.html">main</a></dd>
                 </dl>
         </div>
     </div>
