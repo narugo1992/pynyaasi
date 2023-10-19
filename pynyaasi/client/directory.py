@@ -52,6 +52,20 @@ class DirectoryTreeNode(collections.abc.Sequence):
     def __repr__(self):
         return f'<{self.__class__.__name__} {self._title()}>'
 
+    def _info(self):
+        raise NotImplementedError  # pragma: no cover
+
+    def __eq__(self, other):
+        if self is other:
+            return True
+        elif type(other) == type(self):
+            return self._info() == other._info()
+        else:
+            return False
+
+    def __hash__(self):
+        return hash(self._info())
+
 
 class Directory(DirectoryTreeNode):
     def __init__(self, name, children: List[DirectoryTreeNode]):
@@ -67,6 +81,9 @@ class Directory(DirectoryTreeNode):
     def _list_children(self) -> List['DirectoryTreeNode']:
         return self._children
 
+    def _info(self):
+        return self.name, tuple(self._children)
+
 
 class File(DirectoryTreeNode):
     def __init__(self, name, size_raw: str):
@@ -81,3 +98,6 @@ class File(DirectoryTreeNode):
 
     def _list_children(self) -> List['DirectoryTreeNode']:
         return []
+
+    def _info(self):
+        return self.name, self._size_raw_text

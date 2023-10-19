@@ -50,3 +50,6 @@ pdocs:
 sync:
 	$(PYTHON) -m tools.nyaasi sync
 	$(PYTHON) -m tools.sukebei sync
+
+prepare:
+	$(PYTHON) -m test.testings.nyaasi

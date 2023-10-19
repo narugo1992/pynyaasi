@@ -14,7 +14,7 @@ def _suppress_warning():
 
 
 def _text_to_bytes(text):
-    if 'bytes' in text.lower():
+    if isinstance(text, str) and 'bytes' in text.lower():
         return int(' '.join(re.split(r'\s+', text)[:-1]))
     else:
         with _suppress_warning():

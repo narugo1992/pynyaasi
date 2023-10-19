@@ -241,7 +241,7 @@ class BaseClient:
                 return File(_file_name, _file_raw_size)
 
             else:
-                assert False, f'Unknown element in folder extraction - {element!r}.'
+                assert False, f'Unknown element in folder extraction - {element!r}.'  # pragma: no cover
 
         file_node = _recursive_extraction(list_header)
 
