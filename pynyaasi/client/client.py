@@ -34,14 +34,32 @@ class ListItem:
 
     @property
     def datetime(self):
+        """
+        Get the datetime of the item's timestamp.
+
+        :return: The datetime of the item.
+        :rtype: datetime.datetime
+        """
         return unix_timestamp_to_datetime(self.timestamp)
 
     @property
     def time(self) -> str:
+        """
+        Get the timestamp of the item in ISO format.
+
+        :return: The timestamp of the item in ISO format.
+        :rtype: str
+        """
         return self.datetime.isoformat()
 
     @property
     def size(self) -> SizeProxy:
+        """
+        Get the size of the item as a SizeProxy object.
+
+        :return: The size of the item.
+        :rtype: SizeProxy
+        """
         return SizeProxy(self.size_raw)
 
 
@@ -69,18 +87,52 @@ class ResourceItem:
 
     @property
     def datetime(self):
+        """
+        Get the datetime of the item's timestamp.
+
+        :return: The datetime of the item.
+        :rtype: datetime.datetime
+        """
         return unix_timestamp_to_datetime(self.timestamp)
 
     @property
     def time(self) -> str:
+        """
+        Get the timestamp of the item in ISO format.
+
+        :return: The timestamp of the item in ISO format.
+        :rtype: str
+        """
         return self.datetime.isoformat()
 
     @property
     def size(self) -> SizeProxy:
+        """
+        Get the size of the item as a SizeProxy object.
+
+        :return: The size of the item.
+        :rtype: SizeProxy
+        """
         return SizeProxy(self.size_raw)
 
 
 class BaseClient:
+    """
+    A base class for clients that interact with websites like nyaa.si.
+
+    Attributes:
+        - __endpoint__: The base URL for the website.
+        - __filter_class__: The class that defines filtering options.
+        - __default_filter__: The default filtering option.
+        - __category_class__: The class that defines item categories.
+        - __default_category__: The default item category.
+
+    Methods:
+        - iter_items_by_page: Iterates through items on the website by page.
+        - iter_items: Iterates through items on the website with paging support.
+        - get_resource: Retrieves detailed information about a resource.
+    """
+
     __endpoint__: Optional[str] = None
     __filter_class__: Optional[Type[Enum]] = None
     __default_filter__ = None
@@ -88,6 +140,12 @@ class BaseClient:
     __default_category__ = None
 
     def __init__(self, session: Optional[requests.Session] = None):
+        """
+        Initialize the BaseClient.
+
+        :param session: An optional requests.Session object.
+        :type self: Optional[requests.Session]
+        """
         assert self.__endpoint__ is not None, f'__endpoint__ of {self.__class__.__name__} class not assigned.'
         assert self.__filter_class__ is not None, \
             f'__filter_class__ of {self.__class__.__name__} class not assigned.'
@@ -103,6 +161,21 @@ class BaseClient:
     # noinspection PyShadowingBuiltins
     def iter_items_by_page(self, query: str = '', filter=..., category=..., sort_by=None, order=Order.DESC,
                            page: int = 1) -> Iterator[ListItem]:
+        """
+        Iterates through items on the website by page.
+
+        :param query: The search query.
+        :type query: str
+        :param filter: The filter for items.
+        :param category: The category for items.
+        :param sort_by: The sorting option.
+        :param order: The sorting order (ascending or descending).
+        :type order: Order
+        :param page: The page number to start from.
+        :type page: 1
+        :return: An iterator of ListItem objects.
+        :rtype: Iterator[ListItem]
+        """
         params = {
             'f': load_text_from_enum(filter if filter is not ... else self.__default_filter__,
                                      self.__filter_class__),
@@ -159,6 +232,21 @@ class BaseClient:
     # noinspection PyShadowingBuiltins
     def iter_items(self, query: str = '', filter=..., category=..., sort_by=None, order=Order.DESC,
                    from_page: int = 1):
+        """
+        Iterates through items on the website with paging support.
+
+        :param query: The search query.
+        :type query: str
+        :param filter: The filter for items.
+        :param category: The category for items.
+        :param sort_by: The sorting option.
+        :param order: The sorting order (ascending or descending).
+        :type order: Order
+        :param from_page: The page number to start from.
+        :type from_page: 1
+        :return: An iterator of ListItem objects.
+        :rtype: Iterator[ListItem]
+        """
         page = from_page
         while True:
             iterator = self.iter_items_by_page(query, filter, category, sort_by, order, page)
@@ -174,6 +262,14 @@ class BaseClient:
             page += 1
 
     def get_resource(self, id_: int):
+        """
+        Retrieves detailed information about a resource.
+
+        :param id_: The ID of the resource.
+        :type id_: int
+        :return: A ResourceItem object with resource details.
+        :rtype: ResourceItem
+        """
         resp = self._session.get(f'{self.__endpoint__}/view/{id_}')
         resp.raise_for_status()
         page = pq(resp.text)
