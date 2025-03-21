@@ -1,7 +1,7 @@
 Installation
 ===================
 
-``pynyaasi`` is currently hosted on PyPI. It required python >= 3.7.
+``pynyaasi`` is currently hosted on PyPI. It required python >= 3.8.
 
 You can simply install pynyaasi from PyPI with the following command:
 
