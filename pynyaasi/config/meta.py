@@ -7,7 +7,7 @@ Overview:
 __TITLE__ = 'pynyaasi'
 
 #: Version of this project.
-__VERSION__ = '0.0.1'
+__VERSION__ = '0.1.0'
 
 #: Short description of the project, will be included in ``setup.py``.
 __DESCRIPTION__ = 'Python client for nyaa.si and sukebei.nyaa.si.'
@@ -16,4 +16,4 @@ __DESCRIPTION__ = 'Python client for nyaa.si and sukebei.nyaa.si.'
 __AUTHOR__ = 'narugo1992'
 
 #: Email of the authors'.
-__AUTHOR_EMAIL__ = 'narugo@126.com'
+__AUTHOR_EMAIL__ = 'narugo1992@deepghs.org'
