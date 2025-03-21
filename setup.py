@@ -47,24 +47,51 @@ setup(
     author=meta['__AUTHOR__'],
     author_email=meta['__AUTHOR_EMAIL__'],
     license='Apache License, Version 2.0',
-    keywords='Utilities of images.',
+    keywords='Python client for nyaa.si and sukebei.nyaa.si.',
     url='https://github.com/narugo1992/pynyaasi',
 
     # environment
-    python_requires=">=3.7",
+    python_requires=">=3.8",
     install_requires=requirements,
     tests_require=group_requirements['test'],
     extras_require=group_requirements,
     classifiers=[
         'Development Status :: 5 - Production/Stable',
+
+        # Intended Audience
         'Intended Audience :: Developers',
+        'Intended Audience :: Information Technology',
+        'Intended Audience :: End Users/Desktop',
+
+        # License
         'License :: OSI Approved :: Apache Software License',
+
+        # Programming Language
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3 :: Only',
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: 3.10',
         'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+
+        # Operating System
+        'Operating System :: OS Independent',
+        'Operating System :: POSIX',
+        'Operating System :: Microsoft :: Windows',
+        'Operating System :: MacOS',
+
+        # Technical Topics
+        'Topic :: Internet',
+        'Topic :: Internet :: WWW/HTTP',
+        'Topic :: Internet :: WWW/HTTP :: Indexing/Search',
+        'Topic :: Software Development :: Libraries',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: Utilities',
+
+        # Data Processing Features
+        'Typing :: Typed',
+        'Natural Language :: English'
     ],
 )
