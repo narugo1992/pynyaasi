@@ -1,0 +1,526 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pynyaasi.nyaasi &mdash; pynyaasi 0.0.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="pynyaasi.sukebei" href="../sukebei/index.html" />
+    <link rel="prev" title="pynyaasi.client.size" href="../client/size.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> pynyaasi
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/installation/index.html">Installation</a></li>
+</ul>
+<p><span class="caption-text">API Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../config/index.html">pynyaasi.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">pynyaasi.utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client/index.html">pynyaasi.client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pynyaasi.nyaasi</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nyaasi-endpoint">NYAASI_ENDPOINT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#categorytype">CategoryType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filtertype">FilterType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nyaasiclient">NyaaSiClient</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sukebei/index.html">pynyaasi.sukebei</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">pynyaasi</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+      <li>pynyaasi.nyaasi</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/api_doc/nyaasi/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+    
+    
+  <section id="module-pynyaasi.nyaasi">
+<span id="pynyaasi-nyaasi"></span><h1>pynyaasi.nyaasi<a class="headerlink" href="#module-pynyaasi.nyaasi" title="Permalink to this headline">¶</a></h1>
+<section id="nyaasi-endpoint">
+<h2>NYAASI_ENDPOINT<a class="headerlink" href="#nyaasi-endpoint" title="Permalink to this headline">¶</a></h2>
+<dl class="py data">
+<dt id="pynyaasi.nyaasi.NYAASI_ENDPOINT">
+<code class="sig-prename descclassname">pynyaasi.nyaasi.</code><code class="sig-name descname">NYAASI_ENDPOINT</code><em class="property"> = 'https://nyaa.si'</em><a class="headerlink" href="#pynyaasi.nyaasi.NYAASI_ENDPOINT" title="Permalink to this definition">¶</a></dt>
+<dd><p>str(object=’’) -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to ‘strict’.</p>
+</dd></dl>
+
+</section>
+<section id="categorytype">
+<h2>CategoryType<a class="headerlink" href="#categorytype" title="Permalink to this headline">¶</a></h2>
+<dl class="py class enum">
+<dt id="pynyaasi.nyaasi.CategoryType">
+<em class="property">enum </em><code class="sig-prename descclassname">pynyaasi.nyaasi.</code><code class="sig-name descname">CategoryType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynyaasi/nyaasi/enum.html#CategoryType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType" title="Permalink to this definition">¶</a></dt>
+<dd><p>An enumeration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.ALL_CATEGORIES">
+<code class="sig-name descname">ALL_CATEGORIES</code><em class="property"> = &lt;CategoryType.ALL_CATEGORIES: '0_0'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.ALL_CATEGORIES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.ANIME">
+<code class="sig-name descname">ANIME</code><em class="property"> = &lt;CategoryType.ANIME: '1_0'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.ANIME" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.ANIME_AMV">
+<code class="sig-name descname">ANIME_AMV</code><em class="property"> = &lt;CategoryType.ANIME_AMV: '1_1'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.ANIME_AMV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.ANIME_ENGLISH">
+<code class="sig-name descname">ANIME_ENGLISH</code><em class="property"> = &lt;CategoryType.ANIME_ENGLISH: '1_2'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.ANIME_ENGLISH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.ANIME_NON_ENGLISH">
+<code class="sig-name descname">ANIME_NON_ENGLISH</code><em class="property"> = &lt;CategoryType.ANIME_NON_ENGLISH: '1_3'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.ANIME_NON_ENGLISH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.ANIME_RAW">
+<code class="sig-name descname">ANIME_RAW</code><em class="property"> = &lt;CategoryType.ANIME_RAW: '1_4'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.ANIME_RAW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.AUDIO">
+<code class="sig-name descname">AUDIO</code><em class="property"> = &lt;CategoryType.AUDIO: '2_0'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.AUDIO" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.AUDIO_LOSSLESS">
+<code class="sig-name descname">AUDIO_LOSSLESS</code><em class="property"> = &lt;CategoryType.AUDIO_LOSSLESS: '2_1'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.AUDIO_LOSSLESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.AUDIO_LOSSY">
+<code class="sig-name descname">AUDIO_LOSSY</code><em class="property"> = &lt;CategoryType.AUDIO_LOSSY: '2_2'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.AUDIO_LOSSY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.LITERATURE">
+<code class="sig-name descname">LITERATURE</code><em class="property"> = &lt;CategoryType.LITERATURE: '3_0'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.LITERATURE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.LITERATURE_ENGLISH">
+<code class="sig-name descname">LITERATURE_ENGLISH</code><em class="property"> = &lt;CategoryType.LITERATURE_ENGLISH: '3_1'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.LITERATURE_ENGLISH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.LITERATURE_NON_ENGLISH">
+<code class="sig-name descname">LITERATURE_NON_ENGLISH</code><em class="property"> = &lt;CategoryType.LITERATURE_NON_ENGLISH: '3_2'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.LITERATURE_NON_ENGLISH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.LITERATURE_RAW">
+<code class="sig-name descname">LITERATURE_RAW</code><em class="property"> = &lt;CategoryType.LITERATURE_RAW: '3_3'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.LITERATURE_RAW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.LIVE_ACTION">
+<code class="sig-name descname">LIVE_ACTION</code><em class="property"> = &lt;CategoryType.LIVE_ACTION: '4_0'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.LIVE_ACTION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.LIVE_ACTION_ENGLISH">
+<code class="sig-name descname">LIVE_ACTION_ENGLISH</code><em class="property"> = &lt;CategoryType.LIVE_ACTION_ENGLISH: '4_1'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.LIVE_ACTION_ENGLISH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.LIVE_ACTION_IDOL_PV">
+<code class="sig-name descname">LIVE_ACTION_IDOL_PV</code><em class="property"> = &lt;CategoryType.LIVE_ACTION_IDOL_PV: '4_2'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.LIVE_ACTION_IDOL_PV" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.LIVE_ACTION_NON_ENGLISH">
+<code class="sig-name descname">LIVE_ACTION_NON_ENGLISH</code><em class="property"> = &lt;CategoryType.LIVE_ACTION_NON_ENGLISH: '4_3'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.LIVE_ACTION_NON_ENGLISH" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.LIVE_ACTION_RAW">
+<code class="sig-name descname">LIVE_ACTION_RAW</code><em class="property"> = &lt;CategoryType.LIVE_ACTION_RAW: '4_4'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.LIVE_ACTION_RAW" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.PICTURES">
+<code class="sig-name descname">PICTURES</code><em class="property"> = &lt;CategoryType.PICTURES: '5_0'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.PICTURES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.PICTURES_GRAPHICS">
+<code class="sig-name descname">PICTURES_GRAPHICS</code><em class="property"> = &lt;CategoryType.PICTURES_GRAPHICS: '5_1'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.PICTURES_GRAPHICS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.PICTURES_PHOTOS">
+<code class="sig-name descname">PICTURES_PHOTOS</code><em class="property"> = &lt;CategoryType.PICTURES_PHOTOS: '5_2'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.PICTURES_PHOTOS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.SOFTWARE">
+<code class="sig-name descname">SOFTWARE</code><em class="property"> = &lt;CategoryType.SOFTWARE: '6_0'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.SOFTWARE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.SOFTWARE_APPS">
+<code class="sig-name descname">SOFTWARE_APPS</code><em class="property"> = &lt;CategoryType.SOFTWARE_APPS: '6_1'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.SOFTWARE_APPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.CategoryType.SOFTWARE_GAMES">
+<code class="sig-name descname">SOFTWARE_GAMES</code><em class="property"> = &lt;CategoryType.SOFTWARE_GAMES: '6_2'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.CategoryType.SOFTWARE_GAMES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="filtertype">
+<h2>FilterType<a class="headerlink" href="#filtertype" title="Permalink to this headline">¶</a></h2>
+<dl class="py class enum">
+<dt id="pynyaasi.nyaasi.FilterType">
+<em class="property">enum </em><code class="sig-prename descclassname">pynyaasi.nyaasi.</code><code class="sig-name descname">FilterType</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynyaasi/nyaasi/enum.html#FilterType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pynyaasi.nyaasi.FilterType" title="Permalink to this definition">¶</a></dt>
+<dd><p>An enumeration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Member Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></p>
+</dd>
+</dl>
+<p>Valid values are as follows:</p>
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.FilterType.NO_FILTER">
+<code class="sig-name descname">NO_FILTER</code><em class="property"> = &lt;FilterType.NO_FILTER: '0'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.FilterType.NO_FILTER" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.FilterType.NO_REMAKES">
+<code class="sig-name descname">NO_REMAKES</code><em class="property"> = &lt;FilterType.NO_REMAKES: '1'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.FilterType.NO_REMAKES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="pynyaasi.nyaasi.FilterType.TRUSTED_ONLY">
+<code class="sig-name descname">TRUSTED_ONLY</code><em class="property"> = &lt;FilterType.TRUSTED_ONLY: '2'&gt;</em><a class="headerlink" href="#pynyaasi.nyaasi.FilterType.TRUSTED_ONLY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="nyaasiclient">
+<h2>NyaaSiClient<a class="headerlink" href="#nyaasiclient" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="pynyaasi.nyaasi.NyaaSiClient">
+<em class="property">class </em><code class="sig-prename descclassname">pynyaasi.nyaasi.</code><code class="sig-name descname">NyaaSiClient</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>requests.Session<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynyaasi/nyaasi/client.html#NyaaSiClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pynyaasi.nyaasi.NyaaSiClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>A client class for accessing the nyaa.si website.</p>
+<p>The <cite>NyaaSiClient</cite> class is a subclass of <cite>BaseClient</cite> and provides specific functionality for accessing the nyaa.si website.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>session</strong> (<em>Optional</em><em>[</em><em>requests.Session</em><em>]</em>) – An optional <cite>requests.Session</cite> object to be used for making HTTP requests.</p>
+</dd>
+<dt class="field-even">Variables<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>__endpoint__</strong> (<em>str</em>) – The base endpoint URL for the nyaa.si website.</p></li>
+<li><p><strong>__filter_class__</strong> (<a class="reference internal" href="#pynyaasi.nyaasi.FilterType" title="pynyaasi.nyaasi.FilterType"><em>FilterType</em></a>) – The available filter options for search queries on nyaa.si.</p></li>
+<li><p><strong>__default_filter__</strong> (<a class="reference internal" href="#pynyaasi.nyaasi.FilterType" title="pynyaasi.nyaasi.FilterType"><em>FilterType</em></a>) – The default filter option for search queries on nyaa.si.</p></li>
+<li><p><strong>__category_class__</strong> (<a class="reference internal" href="#pynyaasi.nyaasi.CategoryType" title="pynyaasi.nyaasi.CategoryType"><em>CategoryType</em></a>) – The available category options for search queries on nyaa.si.</p></li>
+<li><p><strong>__default_category__</strong> (<a class="reference internal" href="#pynyaasi.nyaasi.CategoryType" title="pynyaasi.nyaasi.CategoryType"><em>CategoryType</em></a>) – The default category option for search queries on nyaa.si.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="pynyaasi.nyaasi.NyaaSiClient.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">session</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>requests.Session<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/pynyaasi/nyaasi/client.html#NyaaSiClient.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#pynyaasi.nyaasi.NyaaSiClient.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize a new NyaaSiClient instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>session</strong> (<em>Optional</em><em>[</em><em>requests.Session</em><em>]</em>) – An optional <cite>requests.Session</cite> object to be used for making HTTP requests.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynyaasi.nyaasi.NyaaSiClient.get_resource">
+<code class="sig-name descname">get_resource</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">id_</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#pynyaasi.nyaasi.NyaaSiClient.get_resource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieves detailed information about a resource.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>id</strong> (<em>int</em>) – The ID of the resource.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A ResourceItem object with resource details.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="../client/client.html#pynyaasi.client.client.ResourceItem" title="pynyaasi.client.client.ResourceItem">ResourceItem</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynyaasi.nyaasi.NyaaSiClient.iter_items">
+<code class="sig-name descname">iter_items</code><span class="sig-paren">(</span><em class="sig-param">query: str = ''</em>, <em class="sig-param">filter=Ellipsis</em>, <em class="sig-param">category=Ellipsis</em>, <em class="sig-param">sort_by=None</em>, <em class="sig-param">order=&lt;Order.DESC: 'desc'&gt;</em>, <em class="sig-param">from_page: int = 1</em><span class="sig-paren">)</span><a class="headerlink" href="#pynyaasi.nyaasi.NyaaSiClient.iter_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterates through items on the website with paging support.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – The search query.</p></li>
+<li><p><strong>filter</strong> – The filter for items.</p></li>
+<li><p><strong>category</strong> – The category for items.</p></li>
+<li><p><strong>sort_by</strong> – The sorting option.</p></li>
+<li><p><strong>order</strong> (<a class="reference internal" href="../client/enum.html#pynyaasi.client.enum.Order" title="pynyaasi.client.enum.Order"><em>Order</em></a>) – The sorting order (ascending or descending).</p></li>
+<li><p><strong>from_page</strong> (<em>1</em>) – The page number to start from.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An iterator of ListItem objects.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Iterator[<a class="reference internal" href="../client/client.html#pynyaasi.client.client.ListItem" title="pynyaasi.client.client.ListItem">ListItem</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="pynyaasi.nyaasi.NyaaSiClient.iter_items_by_page">
+<code class="sig-name descname">iter_items_by_page</code><span class="sig-paren">(</span><em class="sig-param">query: str = ''</em>, <em class="sig-param">filter=Ellipsis</em>, <em class="sig-param">category=Ellipsis</em>, <em class="sig-param">sort_by=None</em>, <em class="sig-param">order=&lt;Order.DESC: 'desc'&gt;</em>, <em class="sig-param">page: int = 1</em><span class="sig-paren">)</span> &#x2192; Iterator<span class="p">[</span><a class="reference internal" href="../client/client.html#pynyaasi.client.client.ListItem" title="pynyaasi.client.client.ListItem">pynyaasi.client.client.ListItem</a><span class="p">]</span><a class="headerlink" href="#pynyaasi.nyaasi.NyaaSiClient.iter_items_by_page" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterates through items on the website by page.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>query</strong> (<em>str</em>) – The search query.</p></li>
+<li><p><strong>filter</strong> – The filter for items.</p></li>
+<li><p><strong>category</strong> – The category for items.</p></li>
+<li><p><strong>sort_by</strong> – The sorting option.</p></li>
+<li><p><strong>order</strong> (<a class="reference internal" href="../client/enum.html#pynyaasi.client.enum.Order" title="pynyaasi.client.enum.Order"><em>Order</em></a>) – The sorting order (ascending or descending).</p></li>
+<li><p><strong>page</strong> (<em>1</em>) – The page number to start from.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An iterator of ListItem objects.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Iterator[<a class="reference internal" href="../client/client.html#pynyaasi.client.client.ListItem" title="pynyaasi.client.client.ListItem">ListItem</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../sukebei/index.html" class="btn btn-neutral float-right" title="pynyaasi.sukebei" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../client/size.html" class="btn btn-neutral float-left" title="pynyaasi.client.size" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2025, narugo1992
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+    <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: dev/lib
+    <span class="fa fa-caret-down"></span>
+  </span>
+        <div class="rst-other-versions">
+                <dl>
+                    <dt>Tags</dt>
+                        <dd><a href="../../../../v0.0.1/api_doc/nyaasi/index.html">v0.0.1</a></dd>
+                </dl>
+                <dl>
+                    <dt>Branches</dt>
+                        <dd><a href="index.html">dev/lib</a></dd>
+                        <dd><a href="../../../../HEAD/api_doc/nyaasi/index.html">HEAD</a></dd>
+                        <dd><a href="../../../../main/api_doc/nyaasi/index.html">main</a></dd>
+                </dl>
+        </div>
+    </div>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
