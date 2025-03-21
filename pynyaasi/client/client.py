@@ -8,6 +8,8 @@ import requests
 from hbutils.system import urlsplit
 from pyquery import PyQuery as pq
 
+import time
+
 from .directory import DirectoryTreeNode, Directory, File
 from .enum import SortBy, Order
 from .size import SizeProxy
@@ -158,6 +160,33 @@ class BaseClient:
 
         self._session = session or get_session()
 
+    def get_nyaasi_data(self, nya_url, params=None):
+
+        expected_errors = [502, 504]
+    
+        def make_request(url):
+            resp = self._session.get(url, params=params)
+            resp.raise_for_status()
+            return resp
+      
+        try:
+            return make_request(nya_url)
+        except:
+            if "//nyaa.si" in nya_url:
+                nya_url = nya_url.replace("//nyaa.si", "//nyaa.iss.ink")
+            elif '//sukebei.nyaa.si' in nya_url:
+                nya_url = nya_url.replace("//sukebei.nyaa.si", "//fap.iss.one")
+            retries = 3
+            for r in range(retries):
+                try:
+                    return make_request(nya_url)
+                except requests.exceptions.HTTPError as exc:
+                    code = exc.response.status_code
+                    if code in expected_errors:
+                        time.sleep(5*r)
+                        continue
+                    raise
+
     # noinspection PyShadowingBuiltins
     def iter_items_by_page(self, query: str = '', filter=..., category=..., sort_by=None, order=Order.DESC,
                            page: int = 1) -> Iterator[ListItem]:
@@ -188,11 +217,12 @@ class BaseClient:
             params['o'] = load_text_from_enum(order, Order)
         params['p'] = str(page)
 
-        resp = self._session.get(self.__endpoint__, params=params)
-
-        resp.raise_for_status()
-        page = pq(resp.text)
-
+        resp = self.get_nyaasi_data(self.__endpoint__, params)
+        try:
+            page = pq(resp.text)
+        except:
+            return None
+        
         main_table = page('table.torrent-list')
         for row in main_table('tbody tr').items():
             is_trusted = bool(row.has_class('success'))
@@ -270,10 +300,11 @@ class BaseClient:
         :return: A ResourceItem object with resource details.
         :rtype: ResourceItem
         """
-        resp = self._session.get(f'{self.__endpoint__}/view/{id_}')
-        resp.raise_for_status()
-        page = pq(resp.text)
-
+        resp = self.get_nyaasi_data(f'{self.__endpoint__}/view/{id_}')
+        try:
+            page = pq(resp.text)
+        except:
+            return None
         panels = list(page('body > .container > .panel').items())
 
         # basic information
