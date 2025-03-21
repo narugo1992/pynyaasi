@@ -275,3 +275,25 @@ Source________________________________________________Encode
         assert resource.is_trusted == False
         assert resource.is_remake == False
         assert resource.is_batch == False
+
+    @responses.activate
+    def test_get_resource_without_directory_tree(self, client):
+        resource = client.get_resource(915257)
+
+        assert resource.id == 915257
+        assert resource.category == CategoryType.ANIME_ENGLISH
+        assert resource.title == '[HorribleSubs] Barakamon (01-12) [1080p] (Unofficial Batch)'
+        assert resource.information == 'http://horriblesubs.info/shows/barakamon/'
+        assert resource.torrent_download_url is None
+        assert resource.magnet_url.startswith('magnet:?xt=urn:btih:f56d7d17898e0f6f038b1b1eaa1cd0292a5cc235')
+        assert resource.size_raw == '6.1 GiB'
+        assert resource.timestamp == 1491613260
+        assert resource.seeders == 3
+        assert resource.leechers == 1
+        assert resource.downloads == 1335
+        assert resource.is_trusted is False
+        assert resource.is_remake is False
+        assert resource.is_batch is False
+        assert resource.info_hash == 'f56d7d17898e0f6f038b1b1eaa1cd0292a5cc235'
+        assert resource.submitter == 'thedarkness000'
+        assert resource.submitter_url == 'https://nyaa.si/user/thedarkness000'

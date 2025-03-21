@@ -9,6 +9,7 @@ from test.testings import get_testfile
 def _auto_load_fixture():
     try:
         responses._add_from_file(get_testfile('nyaasi.yaml'))
+        responses._add_from_file(get_testfile('nyaasi_ex1.yaml'))
         yield
     finally:
         responses.reset()

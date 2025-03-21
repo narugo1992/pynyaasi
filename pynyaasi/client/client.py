@@ -69,8 +69,8 @@ class ResourceItem:
     category: Any
     title: str
     information: str
-    torrent_download_url: str
-    magnet_url: str
+    torrent_download_url: Optional[str]
+    magnet_url: Optional[str]
     size_raw: str
     timestamp: int
     seeders: int
@@ -83,7 +83,7 @@ class ResourceItem:
     submitter: str
     submitter_url: Optional[str]
     description_md: str
-    directory_tree: DirectoryTreeNode
+    directory_tree: Optional[DirectoryTreeNode]
 
     @property
     def datetime(self):
@@ -282,8 +282,14 @@ class BaseClient:
         is_remake = first_block.has_class('panel-danger')
         is_batch = first_block.has_class('panel-warning')
         title = first_block('.panel-heading .panel-title').text()
-        torrent_download_url = urljoin(resp.request.url, first_block('.panel-footer a:nth-child(1)').attr('href'))
-        magnet_url = first_block('.panel-footer a:nth-child(2)').attr('href')
+
+        torrent_download_url = None
+        magnet_url = None
+        for aitem in first_block('.panel-footer > a').items():
+            if 'magnet' in aitem.text().strip().lower():
+                magnet_url = aitem.attr('href')
+            elif 'torrent' in aitem.text().strip().lower():
+                torrent_download_url = urljoin(resp.request.url, aitem.attr('href'))
 
         # header arguments
         arguments = {}
@@ -339,8 +345,10 @@ class BaseClient:
             else:
                 assert False, f'Unknown element in folder extraction - {element!r}.'  # pragma: no cover
 
-        file_node = _recursive_extraction(list_header)
-
+        if list_header:
+            file_node = _recursive_extraction(list_header)
+        else:
+            file_node = None
         return ResourceItem(
             id=id_, title=title,
             torrent_download_url=torrent_download_url,

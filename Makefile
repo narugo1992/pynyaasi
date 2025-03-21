@@ -53,6 +53,9 @@ sync:
 
 nyaasi:
 	$(PYTHON) -m test.testings.nyaasi
+nyaasi_ex1:
+	$(PYTHON) -m test.testings.nyaasi_ex1
+
 
 sukebei:
 	$(PYTHON) -m test.testings.sukebei
