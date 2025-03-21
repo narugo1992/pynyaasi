@@ -159,15 +159,15 @@
     
     
   <h1>Source code for pynyaasi.nyaasi.client</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Optional</span>
 
-<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
 
-<span class="kn">from</span> <span class="nn">.enum</span> <span class="kn">import</span> <span class="n">NYAASI_ENDPOINT</span><span class="p">,</span> <span class="n">FilterType</span><span class="p">,</span> <span class="n">CategoryType</span>
-<span class="kn">from</span> <span class="nn">..client</span> <span class="kn">import</span> <span class="n">BaseClient</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">NYAASI_ENDPOINT</span><span class="p">,</span> <span class="n">FilterType</span><span class="p">,</span> <span class="n">CategoryType</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..client</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseClient</span>
 
 
-<div class="viewcode-block" id="NyaaSiClient"><a class="viewcode-back" href="../../../api_doc/nyaasi/index.html#pynyaasi.nyaasi.NyaaSiClient">[docs]</a><span class="k">class</span> <span class="nc">NyaaSiClient</span><span class="p">(</span><span class="n">BaseClient</span><span class="p">):</span>
+<div class="viewcode-block" id="NyaaSiClient"><a class="viewcode-back" href="../../../api_doc/nyaasi/index.html#pynyaasi.nyaasi.NyaaSiClient">[docs]</a><span class="k">class</span><span class="w"> </span><span class="nc">NyaaSiClient</span><span class="p">(</span><span class="n">BaseClient</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A client class for accessing the nyaa.si website.</span>
 
@@ -194,7 +194,7 @@
     <span class="n">__category_class__</span> <span class="o">=</span> <span class="n">CategoryType</span>
     <span class="n">__default_category__</span> <span class="o">=</span> <span class="n">CategoryType</span><span class="o">.</span><span class="n">ALL_CATEGORIES</span>
 
-<div class="viewcode-block" id="NyaaSiClient.__init__"><a class="viewcode-back" href="../../../api_doc/nyaasi/index.html#pynyaasi.nyaasi.NyaaSiClient.__init__">[docs]</a>    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="NyaaSiClient.__init__"><a class="viewcode-back" href="../../../api_doc/nyaasi/index.html#pynyaasi.nyaasi.NyaaSiClient.__init__">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize a new NyaaSiClient instance.</span>
 
@@ -215,7 +215,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2023, narugo1992
+        &copy; Copyright 2025, narugo1992
 
     </p>
   </div>
@@ -244,6 +244,7 @@
                 <dl>
                     <dt>Branches</dt>
                         <dd><a href="../../../../main/index.html">main</a></dd>
+                        <dd><a href="../../../../HEAD/index.html">HEAD</a></dd>
                 </dl>
         </div>
     </div>

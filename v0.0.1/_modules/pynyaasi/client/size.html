@@ -159,16 +159,16 @@
     
     
   <h1>Source code for pynyaasi.client.size</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">re</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
-<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">contextlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 
-<span class="kn">from</span> <span class="nn">hbutils.scale</span> <span class="kn">import</span> <span class="n">size_to_bytes</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">hbutils.scale</span><span class="w"> </span><span class="kn">import</span> <span class="n">size_to_bytes</span>
 
 
 <span class="nd">@contextmanager</span>
-<span class="k">def</span> <span class="nf">_suppress_warning</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_suppress_warning</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A context manager that suppresses warnings temporarily.</span>
 
@@ -187,7 +187,7 @@
         <span class="k">yield</span>
 
 
-<span class="k">def</span> <span class="nf">_text_to_bytes</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_text_to_bytes</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Convert a text representation of size to bytes.</span>
 
@@ -207,7 +207,7 @@
 
 
 <div class="viewcode-block" id="SizeProxy"><a class="viewcode-back" href="../../../api_doc/client/size.html#pynyaasi.client.size.SizeProxy">[docs]</a><span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">SizeProxy</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SizeProxy</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Represents a proxy for managing and comparing sizes.</span>
 
@@ -221,11 +221,11 @@
 
     <span class="n">raw</span><span class="p">:</span> <span class="nb">str</span>
 
-<div class="viewcode-block" id="SizeProxy.__repr__"><a class="viewcode-back" href="../../../api_doc/client/size.html#pynyaasi.client.size.SizeProxy.__repr__">[docs]</a>    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="SizeProxy.__repr__"><a class="viewcode-back" href="../../../api_doc/client/size.html#pynyaasi.client.size.SizeProxy.__repr__">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw</span></div>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">_bytes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_bytes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the size in bytes.</span>
 
@@ -234,7 +234,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">_text_to_bytes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span>
 
-<div class="viewcode-block" id="SizeProxy.__gt__"><a class="viewcode-back" href="../../../api_doc/client/size.html#pynyaasi.client.size.SizeProxy.__gt__">[docs]</a>    <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<div class="viewcode-block" id="SizeProxy.__gt__"><a class="viewcode-back" href="../../../api_doc/client/size.html#pynyaasi.client.size.SizeProxy.__gt__">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compare if the size is greater than another size.</span>
 
@@ -246,7 +246,7 @@
         <span class="k">with</span> <span class="n">_suppress_warning</span><span class="p">():</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bytes</span> <span class="o">&gt;</span> <span class="n">_text_to_bytes</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SizeProxy.__ge__"><a class="viewcode-back" href="../../../api_doc/client/size.html#pynyaasi.client.size.SizeProxy.__ge__">[docs]</a>    <span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<div class="viewcode-block" id="SizeProxy.__ge__"><a class="viewcode-back" href="../../../api_doc/client/size.html#pynyaasi.client.size.SizeProxy.__ge__">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compare if the size is greater than or equal to another size.</span>
 
@@ -258,7 +258,7 @@
         <span class="k">with</span> <span class="n">_suppress_warning</span><span class="p">():</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bytes</span> <span class="o">&gt;=</span> <span class="n">_text_to_bytes</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SizeProxy.__lt__"><a class="viewcode-back" href="../../../api_doc/client/size.html#pynyaasi.client.size.SizeProxy.__lt__">[docs]</a>    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<div class="viewcode-block" id="SizeProxy.__lt__"><a class="viewcode-back" href="../../../api_doc/client/size.html#pynyaasi.client.size.SizeProxy.__lt__">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compare if the size is less than another size.</span>
 
@@ -270,7 +270,7 @@
         <span class="k">with</span> <span class="n">_suppress_warning</span><span class="p">():</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bytes</span> <span class="o">&lt;</span> <span class="n">_text_to_bytes</span><span class="p">(</span><span class="n">other</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="SizeProxy.__le__"><a class="viewcode-back" href="../../../api_doc/client/size.html#pynyaasi.client.size.SizeProxy.__le__">[docs]</a>    <span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+<div class="viewcode-block" id="SizeProxy.__le__"><a class="viewcode-back" href="../../../api_doc/client/size.html#pynyaasi.client.size.SizeProxy.__le__">[docs]</a>    <span class="k">def</span><span class="w"> </span><span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Compare if the size is less than or equal to another size.</span>
 
@@ -294,7 +294,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2023, narugo1992
+        &copy; Copyright 2025, narugo1992
 
     </p>
   </div>
@@ -323,6 +323,7 @@
                 <dl>
                     <dt>Branches</dt>
                         <dd><a href="../../../../main/index.html">main</a></dd>
+                        <dd><a href="../../../../HEAD/index.html">HEAD</a></dd>
                 </dl>
         </div>
     </div>
